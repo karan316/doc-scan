@@ -1,23 +1,28 @@
 Vec3f calcParams(Point2f p1, Point2f p2) // line's equation Params computation
 {
     float a, b, c;
-    if (p2.y - p1.y == 0)
+    x1 = p1.x;
+    x2 = p2.x;
+
+    y1 = p1.y;
+    y2 = p2.y;
+    if (y2 - y1 == 0)
     {
         a = 0.0f;
         b = -1.0f;
     }
-    else if (p2.x - p1.x == 0)
+    else if (x2 - x1 == 0)
     {
         a = -1.0f;
         b = 0.0f;
     }
     else
     {
-        a = (p2.y - p1.y) / (p2.x - p1.x);
+        a = (y2 - y1) / (x2 - x1);
         b = -1.0f;
     }
 
-    c = (-a * p1.x) - b * p1.y;
+    c = (-a * x1) - b * y1;
     return(Vec3f(a, b, c));
 }
 
